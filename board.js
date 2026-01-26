@@ -13,26 +13,36 @@ const moves = [
   [-2, 1],
   [-2, -1],
   [-1, 2],
-  [-1 - 2],
+  [-1, -2],
 ];
 
 function isInRange(position) {
   const [x, y] = position;
-  if (x > 7 || x < 0) return false;
-  if (y > 7 || y < 0) return false;
+  // console.log(x);
+  // console.log(y);
+  if (typeof x !== "number" && typeof y !== "number") return false;
+  if (!(x > -1 && x < 8)) return false;
+  if (!(y > -1 && y < 8)) return false;
+  // if (y > 7 || y < 0) return false;
   return true;
 }
 
-function getPossibleMoves(position) {
+export function getPossibleMoves(position) {
+  if (!isInRange(position)) return;
   const [x, y] = position;
   //   console.log(position);
-  let positions = moves.map((elem) => {
+  const deepCopy = JSON.parse(JSON.stringify(moves));
+  let positions = deepCopy.map((elem) => {
     elem[0] = elem[0] + x;
     elem[1] = elem[1] + y;
     return elem;
   });
-  return positions.filter((position) => isInRange(position));
+  // console.log(moves);
+  return positions.filter((elem) => isInRange(elem));
+  // console.log(positions);
+  // return positions;
   //   return positions;
 }
 
-console.log(getPossibleMoves([2, 5]));
+// console.log(getPossibleMoves([2, 1]));
+// console.log(isInRange([8, 7]));
