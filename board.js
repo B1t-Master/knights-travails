@@ -1,9 +1,10 @@
-export class Node {
-  constructor(x, y) {
-    this.coordinate = [x, y];
-    this.visited = false;
-  }
-}
+// export class Node {
+//   constructor(x, y) {
+//     this.coordinate = [x, y];
+//     this.parent = null;
+//     // this.visited = false;
+//   }
+// }
 
 const moves = [
   [2, 1],
@@ -30,19 +31,11 @@ function isInRange(position) {
 export function getPossibleMoves(position) {
   if (!isInRange(position)) return;
   const [x, y] = position;
-  //   console.log(position);
   const deepCopy = JSON.parse(JSON.stringify(moves));
   let positions = deepCopy.map((elem) => {
     elem[0] = elem[0] + x;
     elem[1] = elem[1] + y;
     return elem;
   });
-  // console.log(moves);
   return positions.filter((elem) => isInRange(elem));
-  // console.log(positions);
-  // return positions;
-  //   return positions;
 }
-
-// console.log(getPossibleMoves([2, 1]));
-// console.log(isInRange([8, 7]));
