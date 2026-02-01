@@ -1,8 +1,6 @@
 # Knights Travails
 
-A solution to **The Odin Project – Knights Travails** problem. This project finds the shortest possible path a knight can take on a chessboard from a given start square to a target square using graph traversal.
-
-🔗 Project brief: [https://www.theodinproject.com/lessons/javascript-knights-travails](https://www.theodinproject.com/lessons/javascript-knights-travails)
+This project finds the shortest possible path a knight can take on a chessboard from a given start square to a target square using graph traversal.
 
 ## Problem Overview
 
